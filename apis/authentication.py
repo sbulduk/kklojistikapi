@@ -1,22 +1,15 @@
 from dotenv import load_dotenv
+from apis.initclient import InitClient
 import os
-import requests
 
 load_dotenv()
 
 class Authentication(object):
     def __init__(self):
         self.apiBaseUrl=os.getenv("APIBASEURL")
-
-    def GetClient(self):
-        client=requests.Session()
-        client.headers.update({
-            "Accept":"application/json"
-            })
-        return client
+        self.client=InitClient.GetClient()
     
     def LoginUser(self,username,password):
-        client=self.GetClient()
         authenticationEndpoint=f"{self.apiBaseUrl}/user/authenticate"
 
         loginParams={
@@ -26,7 +19,7 @@ class Authentication(object):
             }
         
         try:
-            response=client.post(authenticationEndpoint,data=loginParams)
+            response=self.client.post(authenticationEndpoint,data=loginParams)
             if(response.status_code==200):
                 loginResult=response.json()
                 accessToken=loginResult.get("access_token",None)
@@ -34,7 +27,7 @@ class Authentication(object):
                     "success":True,
                     "message":"Login Successful",
                     "access_token":accessToken
-                    }
+					}
             else:
                 return{
                     "success":False,
