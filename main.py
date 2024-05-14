@@ -2,18 +2,15 @@ import sys
 sys.dont_write_bytecode=True
 from apis.authprocess.authentication import Authentication
 from apis.clientprocess.client import Client
+from apis.clientprocess.clientpayload import ClientPayload
 from apis.productprocess.product import Product
 
 class Main(object):
-    def Auth(self):
+    def Auth(self)->str:
         auth=Authentication()
         authResponse=self.AuthLogin(auth,"KK_GEBRTASKIN","123")
         if(authResponse):
-            uname=authResponse["username"]
-            token=authResponse["token"]
-            print(f"Username: {uname}")
-            print(f"Token: {token}")
-            print("Login successful")
+            return authResponse["token"]
         else:
             print("Wrong credentials")
 
@@ -24,7 +21,7 @@ class Main(object):
             print(f"Login failed: {e}")
             return None
         
-    def AddNewClient(self):
+    def AddNewClient(self,accessToken:str):
         newClient=Client()
         newClientPayload={
             "ModelType":2,
@@ -59,7 +56,7 @@ class Main(object):
                 }
             ]
         }
-        newClientResponse=newClient.NewClient(newClientPayload)
+        newClientResponse=newClient.NewClient(accessToken,newClientPayload)
         if(newClientResponse):
             print(f"{newClientResponse}")
         else:
@@ -114,4 +111,7 @@ class Main(object):
 
 if(__name__=="__main__"):
     app=Main()
-    app.Auth()
+    accessToken=app.Auth()
+    print(f"Access Token: {accessToken}")
+    print(f"--------------------------------------------------")
+    app.AddNewClient(accessToken)

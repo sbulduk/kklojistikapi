@@ -7,7 +7,10 @@ class Authentication(object):
         self.apiBaseUrl=InitValues().apiBaseUrl
     
     def LoginUser(self,username:str,password:str)->Union[Dict[str,str],None]:
-        loginParams={
+        loginHeaders={
+            "Content-Type":"application/x-www-form-urlencoded"
+            }
+        loginPayload={
             "username":username,
             "password":password,
             "grant_type":"password"
@@ -16,7 +19,7 @@ class Authentication(object):
         authenticationEndpoint=f"{self.apiBaseUrl}/user/authenticate"
 
         try:
-            response=requests.post(authenticationEndpoint,data=loginParams)
+            response=requests.post(authenticationEndpoint,headers=loginHeaders,data=loginPayload)
             response.raise_for_status()
             accessToken=response.json()["access_token"]
             if(accessToken):
