@@ -1,16 +1,17 @@
 from apis.initvalues import InitValues
-from apis.clientprocess.clientpayload import ClientPayload
+from apis.productprocess.productpayload import ProductPayload
 from typing import Union,Dict
 import requests
 
-class Client(object):
+class Product(object):
     def __init__(self)->None:
         self.apiBaseUrl=InitValues().apiBaseUrl
 
-    def NewClient(self,payload:ClientPayload)->Union[Dict,None]:
-        newClientEndpoint=f"{self.apiBaseUrl}/api/integrator/post"
+    def NewProduct(self,payload:ProductPayload)->Union[Dict,None]:
+        newProductEndpoint=f"{self.apiBaseUrl}/api/integrator/post?"
+
         try:
-            response=requests.post(newClientEndpoint,json=payload)
+            response=requests.post(newProductEndpoint,json=payload)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:

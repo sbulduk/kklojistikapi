@@ -1,12 +1,12 @@
 from apis.initvalues import InitValues
-from typing import Dict
+from typing import Union,Dict
 import requests
 
 class Authentication(object):
     def __init__(self):
         self.apiBaseUrl=InitValues().apiBaseUrl
     
-    def LoginUser(self,username:str,password:str)->Dict[str,str]:
+    def LoginUser(self,username:str,password:str)->Union[Dict[str,str],None]:
         loginParams={
             "username":username,
             "password":password,
@@ -14,7 +14,15 @@ class Authentication(object):
             }
         
         authenticationEndpoint=f"{self.apiBaseUrl}/user/authenticate"
-        response=requests.post(authenticationEndpoint,data=loginParams)
 
-        accessToken=response.json()["access_token"]
-        return {"username":username,"token":accessToken}
+        try:
+            response=requests.post(authenticationEndpoint,data=loginParams)
+            response.raise_for_status()
+            accessToken=response.json()["access_token"]
+            if(accessToken):
+                return {"username":username,"token":accessToken}
+            else:
+                return None
+        except requests.RequestException as e:
+            print(f"An error occured: {e}")
+            return None

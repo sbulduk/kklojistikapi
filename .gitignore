@@ -1,1 +1,7 @@
 kklojistik-env/
+*.pyc
+__pycache__/
+.env
+.idea/
+.vscode/
+.DS_Store

@@ -20,4 +20,4 @@ class ClientPayload(object):
     IsSubjectToEShipment:bool
     EShipmentStartDate:str
     PostalAddresses:List[PostalAddress]
-    Communications:List[Dict[int,str]]
+    Communications:List[Communication]
