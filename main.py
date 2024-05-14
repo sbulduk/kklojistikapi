@@ -2,8 +2,8 @@ import sys
 sys.dont_write_bytecode=True
 from apis.authprocess.authentication import Authentication
 from apis.clientprocess.client import Client
-from apis.clientprocess.clientpayload import ClientPayload
 from apis.productprocess.product import Product
+from apis.saleorderprocess.saleorder import SaleOrder
 
 class Main(object):
     def Auth(self)->str:
@@ -20,7 +20,7 @@ class Main(object):
         except Exception as e:
             print(f"Login failed: {e}")
             return None
-        
+
     def AddNewClient(self,accessToken:str):
         newClient=Client()
         newClientPayload={
@@ -108,6 +108,38 @@ class Main(object):
             print(f"{newProductResponse}")
         else:
             print(f"Failed to add new product.")
+
+    def CreateNewSaleOrder(self,accessToken:str):
+        newSaleOrder=SaleOrder(accessToken)
+        newSaleOrderPayload={
+            "ModelType":5, 
+            "CustomerCode":"101.1",
+            "Description":"",
+            "DocumentNumber":"",
+            "InternalDescription":"",
+            "IsCompleted":"true",
+            "IsCreditSale":"true",
+            "Lines":[{
+                "ColorCode":"",
+                "ItemCode":"KML001",
+                "ItemDim1Code":"",
+                "ItemDim2Code":"",
+                "ItemDim3Code":"",
+                "ItemTypeCode":1,
+                "LineDescription":"",
+                "Qty1":2,
+                    "LotNumber":"",
+                "SerialNumber":""
+                }
+            ],
+            "OfficeCode":"M",
+            "WarehouseCode":"M"
+            }
+        newSaleOrderResponse=newSaleOrder.NewSaleOrder(newSaleOrderPayload)
+        if(newSaleOrderResponse):
+            print(f"{newSaleOrderResponse}")
+        else:
+            print(f"Failed to create new sale.")
 
 if(__name__=="__main__"):
     app=Main()
