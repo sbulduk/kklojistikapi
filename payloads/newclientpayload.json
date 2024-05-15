@@ -1,0 +1,33 @@
+{
+    "ModelType":2,
+    "CurrAccCode":"1012.1",
+    "CurrAccDescription":"Musteri",
+    "IdentityNum":"11111111111",
+    "OfficeCode":"M",
+    "WholeSalePriceGroupCode":"",
+    "CreditLimit":0,
+    "CurrencyCode":"TRY",
+    "CustomerTypeCode":0,
+    "TaxNumber":"111111111111",
+    "TaxOfficeCode":"",
+    "MersisNum":"111111111111",
+    "IsSubjectToEShipment":true,
+    "EShipmentStartDate":"2020-01-01",
+    "PostalAddresses":[{
+        "AddressTypeCode":"1",
+        "CountryCode":"TR",
+        "StateCode":"STD",
+        "CityCode":"STD",
+        "DistrictCode":"STD",
+        "Address":"Merkez mah. Demir Sokak No:36 Şişli İstanbul"
+        }
+    ],
+    "Communications":[{
+        "CommunicationTypeCode":7,
+        "CommAddress":"05555545555"
+        },{
+        "CommunicationTypeCode":8,
+        "CommAddress":"urn:mail:despatchdefaultpk@trakyabirlik.com.tr"
+        }
+    ]
+}

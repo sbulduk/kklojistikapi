@@ -1,0 +1,39 @@
+{
+    "ModelType":4,
+    "ItemTypeCode":"1",
+    "ItemCode":"KMA0090",
+    "ItemDescription":"Kareli Gömlek",
+    "ItemDimTypeCode":0,
+    "ItemTaxGrCode":"%8",
+    "ShelfLife":20,
+    "GuaranteePeriod":5,
+    "ProductHierarchyID":0,
+    "UsePOS":true,
+    "UseStore":true,
+    "UseInternet":true,
+    "UnitOfMeasureCode1":"AD",
+    "Attributes":[{
+        "AttributeCode":"EVET",
+        "AttributeTypeCode":1
+        },{
+        "AttributeCode":"HAYIR",
+        "AttributeTypeCode":2
+        },{
+        "AttributeCode":"HAYIR",
+        "AttributeTypeCode":3
+        },{
+        "AttributeCode":"HAYIR",
+        "AttributeTypeCode":4
+        }
+    ],
+    "ItemInformations":[{
+        "Information":"Marka Giriniz"
+        }
+    ], 
+    "Barcodes":[{
+        "Barcode":"123",
+        "BarcodeTypeCode":"Def",
+        "Qty":1,
+        "UnitOfMeasureCode":"AD"
+        }]
+    }
