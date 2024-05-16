@@ -2,6 +2,7 @@ from apis.initvalues import InitValues
 from typing import Union,Dict
 import requests
 import json
+from pprint import pprint
 
 class Client(object):
     def __init__(self)->None:
@@ -14,7 +15,7 @@ class Client(object):
             "Authorization":f"Bearer {accessToken}"
             }
         try:
-            response=requests.post(newClientEndpoint,headers=newClientHeaders,data=json.dumps(clientPayload))
+            response=requests.post(newClientEndpoint,headers=newClientHeaders,data=clientPayload)
             response.raise_for_status()
             return response.json()
         except requests.RequestException as e:

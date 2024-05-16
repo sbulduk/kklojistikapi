@@ -8,14 +8,14 @@ class Authentication(object):
     
     def LoginUser(self,username:str,password:str)->Union[Dict[str,str],None]:
         loginHeaders={
-            "Content-Type":"application/x-www-form-urlencoded"
+            "Content-Type":"application/json"
             }
         loginPayload={
             "username":username,
             "password":password,
             "grant_type":"password"
             }
-        
+
         authenticationEndpoint=f"{self.apiBaseUrl}/user/authenticate"
 
         try:

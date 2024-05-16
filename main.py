@@ -2,6 +2,7 @@ import sys
 sys.dont_write_bytecode=True
 from payload import Payload
 from pprint import pprint
+import json
 from apis.authentication import Authentication
 from apis.client import Client
 from apis.product import Product
@@ -68,8 +69,5 @@ class Main(object):
 if(__name__=="__main__"):
     app=Main()
     accessToken=app.Auth()
-    print(f"--------------------------------------------------")
+    # print(f"--------------------------------------------------")
     app.AddNewClient(accessToken)
-    app.AddNewProduct(accessToken)
-    
-    app.RunNewProc(accessToken)
