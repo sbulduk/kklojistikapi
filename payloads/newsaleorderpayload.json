@@ -1,24 +1,21 @@
 {
-    "ModelType":5, 
-    "CustomerCode":"101.1",
+    "ModelType":9,
+    "VendorCode":"1012.1",
     "Description":"",
     "DocumentNumber":"",
     "InternalDescription":"",
-    "IsCompleted":"true",
-    "IsCreditSale":"true",
+    "IsCompleted":true,
+    "IsCreditSale":true,
     "Lines":[{
         "ColorCode":"",
-        "ItemCode":"KML001",
+        "ItemCode":"KMA0090",
         "ItemDim1Code":"",
         "ItemDim2Code":"",
         "ItemDim3Code":"",
         "ItemTypeCode":1,
         "LineDescription":"",
-        "Qty1":2,
-            "LotNumber":"",
-        "SerialNumber":""
-        }
-    ],
+        "Qty1":2
+      }],
     "OfficeCode":"M",
     "WarehouseCode":"M"
-    }
+}

@@ -35,11 +35,11 @@ class Main(object):
         else:
             print(f"Failed to add new client")
 
-    def AddNewProduct(self):
+    def AddNewProduct(self,accessToken:str):
         newProduct=Product()
         payload=Payload()
         newProductPayload=payload.LoadJsonPayload("newproductpayload.json")
-        newProductResponse=newProduct.NewProduct(newProductPayload)
+        newProductResponse=newProduct.NewProduct(accessToken,newProductPayload)
         if(newProductResponse):
             print(f"{newProductResponse}")
         else:
@@ -48,7 +48,7 @@ class Main(object):
     def CreateNewSaleOrder(self,accessToken:str):
         newSaleOrder=SaleOrder()
         payload=Payload()
-        newSaleOrderPayload=payload.LoadJsonPayload("neworderpayload.json")
+        newSaleOrderPayload=payload.LoadJsonPayload("newsaleorderpayload.json")
         newSaleOrderResponse=newSaleOrder.NewSaleOrder(accessToken,newSaleOrderPayload)
         if(newSaleOrderResponse):
             print(f"{newSaleOrderResponse}")
@@ -70,4 +70,4 @@ if(__name__=="__main__"):
     app=Main()
     accessToken=app.Auth()
     # print(f"--------------------------------------------------")
-    app.AddNewClient(accessToken)
+    app.RunNewProc(accessToken)

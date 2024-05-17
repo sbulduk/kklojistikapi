@@ -1,6 +1,6 @@
 {
     "ModelType":2,
-    "CurrAccCode":"1012.1",
+    "CurrAccCode":"1017.1",
     "CurrAccDescription":"Musteri",
     "IdentityNum":"11111111111",
     "OfficeCode":"M",
@@ -20,14 +20,12 @@
         "CityCode":"STD",
         "DistrictCode":"STD",
         "Address":"Merkez mah. Demir Sokak No:36 Şişli İstanbul"
-        }
-    ],
+    }],
     "Communications":[{
         "CommunicationTypeCode":7,
         "CommAddress":"05555545555"
-        },{
-        "CommunicationTypeCode":8,
-        "CommAddress":"urn:mail:despatchdefaultpk@trakyabirlik.com.tr"
-        }
-    ]
+    },{
+      "CommunicationTypeCode":3,
+      "CommAddress":"urn:mail:despatchdefaultpk@trakyabirlik.com.tr"
+    }]
 }

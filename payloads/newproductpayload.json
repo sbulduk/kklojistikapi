@@ -12,28 +12,13 @@
     "UseStore":true,
     "UseInternet":true,
     "UnitOfMeasureCode1":"AD",
-    "Attributes":[{
-        "AttributeCode":"EVET",
-        "AttributeTypeCode":1
-        },{
-        "AttributeCode":"HAYIR",
-        "AttributeTypeCode":2
-        },{
-        "AttributeCode":"HAYIR",
-        "AttributeTypeCode":3
-        },{
-        "AttributeCode":"HAYIR",
-        "AttributeTypeCode":4
-        }
-    ],
     "ItemInformations":[{
-        "Information":"Marka Giriniz"
-        }
-    ], 
+        "Information":"Marka Adını Giriniz"
+    }], 
     "Barcodes":[{
-        "Barcode":"123",
-        "BarcodeTypeCode":"Def",
-        "Qty":1,
-        "UnitOfMeasureCode":"AD"
-        }]
-    }
+      "Barcode":"123",
+      "BarcodeTypeCode":"Def",
+      "Qty":1,
+      "UnitOfMeasureCode":"AD"
+    }]
+}
