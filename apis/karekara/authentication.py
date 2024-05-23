@@ -1,4 +1,4 @@
-from apis.initvalues import InitValues
+from apis.karekara.initvalues import InitValues
 from typing import Union,Dict
 import requests
 
@@ -8,7 +8,7 @@ class Authentication(object):
     
     def LoginUser(self,username:str,password:str)->Union[Dict[str,str],None]:
         loginHeaders={
-            "Content-Type":"application/json"
+            "Content-Type":"application/x-www-form-urlencoded"
             }
         loginPayload={
             "username":username,
