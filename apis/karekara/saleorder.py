@@ -5,10 +5,10 @@ import json
 
 class SaleOrder(object):
     def __init__(self)->None:
-        self.apiBaseUrl=InitValues().apiBaseUrl
+        self.kkApiBaseUrl=InitValues().kkApiBaseUrl
 
     def NewSaleOrder(self,accessToken:str,saleOrderPayload:str)->Union[Dict,None]:
-        newSaleOrderEndpoint=f"{self.apiBaseUrl}/integrator/post"
+        newSaleOrderEndpoint=f"{self.kkApiBaseUrl}/integrator/post"
         saleOrderHeaders={
             "Content-Type":"application/json",
             "Authorization":f"Bearer {accessToken}"

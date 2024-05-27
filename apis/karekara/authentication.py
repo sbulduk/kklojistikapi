@@ -4,9 +4,11 @@ import requests
 
 class Authentication(object):
     def __init__(self):
-        self.apiBaseUrl=InitValues().apiBaseUrl
+        self.kkApiBaseUrl=InitValues().kkApiBaseUrl
     
     def LoginUser(self,username:str,password:str)->Union[Dict[str,str],None]:
+        authenticationEndpoint=f"{self.kkApiBaseUrl}/user/authenticate"
+        
         loginHeaders={
             "Content-Type":"application/x-www-form-urlencoded"
             }
@@ -15,8 +17,6 @@ class Authentication(object):
             "password":password,
             "grant_type":"password"
             }
-
-        authenticationEndpoint=f"{self.apiBaseUrl}/user/authenticate"
 
         try:
             response=requests.post(authenticationEndpoint,headers=loginHeaders,data=loginPayload)

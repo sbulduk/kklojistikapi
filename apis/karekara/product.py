@@ -5,10 +5,10 @@ import json
 
 class Product(object):
     def __init__(self)->None:
-        self.apiBaseUrl=InitValues().apiBaseUrl
+        self.kkApiBaseUrl=InitValues().kkApiBaseUrl
 
     def NewProduct(self,accessToken:str,productPayload:str)->Union[Dict,None]:
-        newProductEndpoint=f"{self.apiBaseUrl}/integrator/post?"
+        newProductEndpoint=f"{self.kkApiBaseUrl}/integrator/post?"
         newProductHeaders={
             "Content-Type":"application/json",
             "Authorization":f"Bearer {accessToken}"

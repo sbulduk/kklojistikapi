@@ -1,49 +1,21 @@
 import sys
 sys.dont_write_bytecode=True
-from pprint import pprint
-from payload import Payload
-from apis.karekara.authentication import Authentication
-from apis.karekara.client import Client
-from apis.karekara.product import Product
-from apis.karekara.saleorder import SaleOrder
-from apis.karekara.runproc import RunProc
+from runkkapi import RunKKAPI
+from runlisapi import RunLISAPI
 
 class Main(object):
-    def __init__(self)->None:
-        self.payload=Payload()
+    def __init__(self):
+        self.kkApp=RunKKAPI()
+        self.lisApp=RunLISAPI()
 
-    def Auth(self,username:str=None,password:str=None)->str:
-        auth=Authentication()
-        if(username==None or password==None):
-            username="KK_GEBRTASKIN"
-            password="123"
-        return auth.LoginUser(username,password)
+    def RunKKApi(self):
+        accessToken=self.kkApp.Auth("KK_GEBRTASKIN","123")["token"]
+        self.kkApp.RunNewProc(accessToken)
 
-    def AddNewClient(self,accessToken:str):
-        newClient=Client()
-        newClientPayload=self.payload.LoadJsonPayload("newclientpayload.json")
-        newClientResponse=newClient.NewClient(accessToken,newClientPayload)
-        pprint(f"{newClientResponse}")
-
-    def AddNewProduct(self,accessToken:str):
-        newProduct=Product()
-        newProductPayload=self.payload.LoadJsonPayload("newproductpayload.json")
-        newProductResponse=newProduct.NewProduct(accessToken,newProductPayload)
-        pprint(f"{newProductResponse}")
-
-    def CreateNewSaleOrder(self,accessToken:str):
-        newSaleOrder=SaleOrder()
-        newSaleOrderPayload=self.payload.LoadJsonPayload("newsaleorderpayload.json")
-        newSaleOrderResponse=newSaleOrder.NewSaleOrder(accessToken,newSaleOrderPayload)
-        pprint(f"{newSaleOrderResponse}")
-
-    def RunNewProc(self,accessToken:str):
-        runProc=RunProc()
-        runProcPayload=self.payload.LoadJsonPayload("runprocpayload.json")
-        runProcResponse=runProc.CallProc(accessToken,runProcPayload)
-        pprint(f"{runProcResponse}")
+    def RunLISApi(self):
+        self.lisApp.Auth()
 
 if(__name__=="__main__"):
     app=Main()
-    accessToken=app.Auth("KK_GEBRTASKIN","123")["token"]
-    app.RunNewProc(accessToken)
+    app.RunKKApi()
+    app.RunLISApi()

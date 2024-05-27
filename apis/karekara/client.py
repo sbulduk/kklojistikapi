@@ -6,10 +6,10 @@ from pprint import pprint
 
 class Client(object):
     def __init__(self)->None:
-        self.apiBaseUrl=InitValues().apiBaseUrl
+        self.kkApiBaseUrl=InitValues().kkApiBaseUrl
 
     def NewClient(self,accessToken:str,clientPayload:str)->Union[Dict,None]:
-        newClientEndpoint=f"{self.apiBaseUrl}/integrator/post"
+        newClientEndpoint=f"{self.kkApiBaseUrl}/integrator/post"
         newClientHeaders={
             "Content-Type":"application/json",
             "Authorization":f"Bearer {accessToken}"

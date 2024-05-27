@@ -4,4 +4,4 @@ import os
 class InitValues(object):
     def __init__(self):
         load_dotenv()
-        self.kkApiBaseUrl=os.getenv("KK_API_BASE_URL")
+        self.lisApiBaseUrl=os.getenv("LIS_API_BASE_URL")

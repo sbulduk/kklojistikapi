@@ -5,10 +5,10 @@ import json
 
 class RunProc(object):
     def __init__(self):
-        self.apiBaseUrl=InitValues().apiBaseUrl
+        self.kkApiBaseUrl=InitValues().kkApiBaseUrl
     
     def CallProc(self,accessToken:str,procPayload:str)->Union[Dict,None]:
-        runProcEndPoint=f"{self.apiBaseUrl}/integrator/runproc"
+        runProcEndPoint=f"{self.kkApiBaseUrl}/integrator/runproc"
         runProcHeaders={
             "Content-Type":"application/json",
             "Authorization":f"Bearer {accessToken}"
